@@ -26,15 +26,15 @@ function showPage (list, page) {
       if (list[i] >= startIndex && list[i] < endIndex) {
          
          const studentCard = `<li class="student-item cf">
-                           <div class="student-details">
-                              <img class="avatar" src=${data.picture.thumbnail} alt="Profile Picture">
-                              <h3>${data.name.first} ${data.name.last}</h3>
-                              <span class="email">${data.email}</span>
-                           </div>
-                           <div class="joined-details">
-                              <span class="date">Joined ${data.registered.date}</span>
-                           </div>
-                        </li>`
+                                 <div class="student-details">
+                                    <img class="avatar" src=${data.picture.thumbnail} alt="Profile Picture">
+                                    <h3>${data.name.first} ${data.name.last}</h3>
+                                    <span class="email">${data.email}</span>
+                                 </div>
+                                 <div class="joined-details">
+                                    <span class="date">Joined ${data.registered.date}</span>
+                                 </div>
+                              </li>`
          studentList.insertAdjacentHTML('beforeend', studentCard);
       }
    }
@@ -53,8 +53,8 @@ function createPageButtons(list) {
    linkList.innerHTML = '';
    for(let i = 0; i < numOfButtons; i++) {
       const pageButton =  `<li>
-                           <button type='button'>${pageButon[i].textContent = i+1}</button>
-                        </li>`
+                           <button type='button'>${numOfButtons[i].textContent = i+1}</button>
+                         </li>`
       linkList.insertAdjacentHTML('beforeend', pageButton);
    }
    linkList.firstElementChild.className('active');
@@ -63,13 +63,12 @@ function createPageButtons(list) {
          for (let i = 0; i < linkList.length; i++) {
             linkList[i].classList.remove('active');
          }
-         e.target.className = 'active';
+         e.target.classList.add('active');
          showPage(list, e.target.textContent);
 
       }
    })
-
-   
 }
 
 // Call functions
+
