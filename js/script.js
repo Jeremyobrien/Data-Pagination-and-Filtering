@@ -1,13 +1,12 @@
 /*
 Treehouse Techdegree:
-FSJS Project 2 - Data Pagination and Filtering
+FSJS Project 2 - list Pagination and Filtering
 */
-
 
 
 /*
 For assistance:
-   Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/data-pagination-and-filtering#instructions
+   Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/list-pagination-and-filtering#instructions
    Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
 */
 
@@ -27,12 +26,12 @@ function showPage (list, page) {
          
          const studentCard = `<li class="student-item cf">
                                  <div class="student-details">
-                                    <img class="avatar" src=${data.picture.thumbnail} alt="Profile Picture">
-                                    <h3>${data.name.first} ${data.name.last}</h3>
-                                    <span class="email">${data.email}</span>
+                                    <img class="avatar" src=${list.picture.thumbnail} alt="Profile Picture">
+                                    <h3>${list.name.first} ${list.name.last}</h3>
+                                    <span class="email">${list.email}</span>
                                  </div>
                                  <div class="joined-details">
-                                    <span class="date">Joined ${data.registered.date}</span>
+                                    <span class="date">Joined ${list.registered.date}</span>
                                  </div>
                               </li>`
          studentList.insertAdjacentHTML('beforeend', studentCard);
@@ -48,12 +47,13 @@ This function will create and insert/append the elements needed for the paginati
 */
 
 function createPageButtons(list) {
-   const numOfButtons = list.length/9;
    const linkList = document.querySelector('.link-list');
+   const numOfButtons = list.length/9;
    linkList.innerHTML = '';
    for(let i = 0; i < numOfButtons; i++) {
-      const pageButton =  `<li>
-                           <button type='button'>${numOfButtons[i].textContent = i+1}</button>
+       let pageButton = document.createElement('button');
+            pageButton += `<li>
+                           <button type='button'>${pageButton.textContent = i+1}</button>
                          </li>`
       linkList.insertAdjacentHTML('beforeend', pageButton);
    }
@@ -72,3 +72,5 @@ function createPageButtons(list) {
 
 // Call functions
 
+showPage(Data, 1);
+createPageButtons(Data);
