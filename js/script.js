@@ -2,7 +2,15 @@
 Treehouse Techdegree:
 FSJS Project 2 - list Pagination and Filtering
 */
+const header = document.querySelector('.header');
 
+header.insertAdjacentHTML('beforeend',
+   `<label for="search" class="student-search">
+   <span>Search by name</span>
+   <input id="search" placeholder="Search by name...">
+   <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
+ </label>`
+)
 
 //This function will create and insert/append the elements needed to display a "page" of nine students
 function showPage(list, page) {
@@ -60,6 +68,7 @@ function addPagination(list) {
          }
       })
 }
+
 
 
 // // Call functions
