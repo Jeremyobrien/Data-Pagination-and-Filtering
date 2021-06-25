@@ -50,14 +50,17 @@ function addPagination(list) {
    linkList.innerHTML = '';
    //Creates apporpriate number of page buttons and inserts them into DOM
    for(let i = 1; i <= numOfPages; i++) {
+      if (numOfPages > 0) {
          let pageButton = document.createElement('button'); 
              pageButton =`<li>
                         <button type='button'>${pageButton.textContent = i}</button>
                         </li>`
       linkList.insertAdjacentHTML('beforeend', pageButton);
+      }
    }
       //Set first page as default 'active' page
-      linkList.firstElementChild.className = 'active';
+      let defaultActivePage = linkList.firstElementChild.firstElementChild;
+      defaultActivePage.className = 'active';
       //Listen for page button clicks to change page results and 'active' status
       linkList.addEventListener('click', (e)=> {
          if (e.target.tagName === 'BUTTON') {
