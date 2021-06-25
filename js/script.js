@@ -86,9 +86,11 @@ const searchFunction= (searchInput, list)=> {
          filteredList = data;
       } else if (searchInput.length !== 0 && !studentName.includes(searchInput.toLowerCase())){
          let studentList = document.querySelector('.student-list');
-         studentList.className = 'no-results';
-         studentList.innerHTML = '<h2>Sorry, there are no students with that name.</h2>'
-      }
+         let errorMessage = document.createElement('p');
+         errorMessage.className = 'no-results';
+         errorMessage.innerHTML = '<p>Sorry, there are no students with that name.<p>';
+         studentList.insertAdjacentHTML('beforeend', errorMessage);
+       }
       }
    
       showPage(filteredList, 1);
